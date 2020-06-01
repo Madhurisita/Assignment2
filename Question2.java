@@ -15,15 +15,22 @@ public class Question2 {
 		System.out.println("ENTER CATEGORY");
 		System.out.println("1: ELECTRONICS");
 		System.out.println("2: COM");
-		String cat=sc.next();
-
+		int choice=sc.nextInt();
+		String query="";
+		switch(choice) {
+		
+		case 1:
+			query="select  product_name from product_data where product_category='electronics'";		
+			break;
+		case 2:
+			query="select  product_name from product_data where product_category='com'";		
+			break;
+		}
+		
 		Connection con=null;
 		Statement stmt=null;
 		ResultSet rs= null;
 		
-			
-		String query="select  product_name from product_data where product_category='electronics'";		
-
 		System.out.println();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
